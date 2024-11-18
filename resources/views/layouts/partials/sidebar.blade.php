@@ -9,7 +9,7 @@
             <ul class="nav flex-column">
                 <x-nav-button text="Inicio" icon="bi bi-house" route="home" />
                 <x-nav-button text="Estudiantes" icon="bi bi-people" route="home" />
-                <x-nav-button text="Promociones" icon="bi bi-book" route="home" />
+                <x-nav-button text="Promociones" icon="bi bi-book" route="promociones.index" />
                 <x-nav-button text="Prácticas" icon="bi bi-book" route="home" />
             </ul>            
         </div>
