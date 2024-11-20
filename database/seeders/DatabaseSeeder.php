@@ -23,5 +23,13 @@ class DatabaseSeeder extends Seeder
             'phone'=>'98745125',
             'password'=> bcrypt('12345678')
         ]);
+        User::create([
+            'name'=>'Kevin MasNaa',
+            'lastname' =>'Yoplac Muñoz',
+            'dni'=>'73661887',
+            'email'=>'kevin@gmail.com',
+            'phone'=>'938543502',
+            'password'=> bcrypt('12345678')
+        ]);
     }
 }
