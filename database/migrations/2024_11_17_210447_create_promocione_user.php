@@ -16,8 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('promocione_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('promocione_id')->references('id')->on('promociones');
-            $table->timestamps();
+            $table->foreign('promocione_id')->references('id')->on('promociones');            
         });
     }
 

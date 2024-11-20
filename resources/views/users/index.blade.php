@@ -18,6 +18,7 @@
                     <th>DNI</th>
                     <th>Teléfono</th>
                     <th>Correo</th>
+                    <th>Promocion</th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,6 +30,7 @@
                         <td>{{ $user->dni }}</td>
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ isset($user->promociones[0]->nombre) ? $user->promociones[0]->nombre  : null }}</td>
                         <td>
                             <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning">Editar</a>
                             <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger">
