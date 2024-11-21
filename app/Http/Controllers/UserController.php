@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     //
     public function index(){
-        $users = User::get();
+        $users = User::role('estudiante')->get();
         return view('users.index',compact('users'));
     }
     public function create(){
@@ -28,6 +28,7 @@ class UserController extends Controller
         $user->password = encrypt($request->password);
         $user->save();
         $user->promociones()->sync($request->promocione_id);
+        $user->assignRole('estudiante');
         return Redirect::route('users.index');
     }
 
