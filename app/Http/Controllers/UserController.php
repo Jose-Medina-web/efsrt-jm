@@ -25,25 +25,31 @@ class UserController extends Controller
         $user->dni = $request->dni;
         $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->password = encrypt($request->password);
         $user->save();
         $user->promociones()->sync($request->promocione_id);
         return Redirect::route('users.index');
     }
+
     public function edit($id){
         $user = User::find($id);
         return view('users.edit',compact('user'));
     }
+    
     public function update(Request $request,$id){
+        
         $user = User::find($id);
-        $user->nombre = $request->name;
+        // dd($user);
+        $user->name = $request->name;
         $user->lastname = $request->lastname;
         $user->dni = $request->dni;
-        $user->phone = $request->dni;
+        $user->phone = $request->phone;
         $user->email = $request->email;
+        $user->password = $request->password;
         $user->update();        
         return Redirect::route('users.index');
     }
+
     public function destroy($id){
         $user = User::find($id);
         $user->delete();
