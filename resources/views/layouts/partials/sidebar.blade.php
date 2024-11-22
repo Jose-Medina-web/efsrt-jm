@@ -12,7 +12,7 @@
                     <x-nav-button text="Estudiantes" icon="bi bi-people" route="users.index" />
                     <x-nav-button text="Promociones" icon="bi bi-book" route="promociones.index" />
                 @endhasrole
-                <x-nav-button text="Prácticas" icon="bi bi-book" route="home" />
+                <x-nav-button text="Prácticas" icon="bi bi-book" route="practicas.index" />
             </ul>            
         </div>
     </div>
