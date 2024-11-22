@@ -33,6 +33,16 @@
 
         <label for="">Password</label>
         <input type="password" value="{{ $user->password }}" name="password" class="form-control mt-2">
+        <label for="">Promoción</label>
+        <select name="promocione_id[]" class="form-control mt-2">
+            <option value="0" disabled selected>Seleccione el año de ingreso</option>
+            @foreach ($promociones as $promocione)
+                <option value="{{ $promocione->id }}" 
+                    @if ($promocione->id == $user->promociones[0]->id) selected @endif>
+                    {{ $promocione->nombre }}
+                </option>               
+            @endforeach
+        </select>
     </div>
 </form>
 @endsection

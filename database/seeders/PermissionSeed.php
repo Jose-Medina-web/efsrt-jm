@@ -22,25 +22,25 @@ class PermissionSeed extends Seeder
             'name'=>'estudiante'
         ]);
         $estudiantes_index = Permission::create([
-            'name' => 'estudiantes.index'
+            'name' => 'users.index'
         ])->assignRole($role_admin);
         $estudiantes_create = Permission::create([
-            'name' => 'estudiantes.create'
+            'name' => 'users.create'
         ])->assignRole($role_admin);
         $estudiantes_store = Permission::create([
-            'name' => 'estudiantes.store'
+            'name' => 'users.store'
         ])->assignRole($role_admin);
         $estudiantes_edit = Permission::create([
-            'name' => 'estudiantes.edit'
+            'name' => 'users.edit'
         ])->assignRole($role_admin);
         $estudiantes_update = Permission::create([
-            'name' => 'estudiantes.update'
+            'name' => 'users.update'
         ])->assignRole($role_admin);
         $estudiantes_show = Permission::create([
-            'name' => 'estudiantes.show'
+            'name' => 'users.show'
         ])->assignRole($role_admin);
         $estudiantes_delete = Permission::create([
-            'name' => 'estudiantes.delete'
+            'name' => 'users.delete'
         ])->assignRole($role_admin);
         $promociones_index = Permission::create([
             'name' => 'promociones.index'
