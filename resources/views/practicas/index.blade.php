@@ -1,5 +1,4 @@
 @extends('layouts.main')
-@extends('layouts.main')
 @section('title', 'EFSRT - Prácticas')
 @section('section-title', 'Lista de Prácticas')
 @section('section-buttons')

@@ -65,7 +65,7 @@
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark" style="background-color: rgb(215, 215, 215) !important">
     <a class="navbar-brand nav-link col-md-3 col-lg-2 me-0 px-3 fs-3 text-primary" 
-    href="#">
+    href="{{ route('home') }}">
     <img src="{{ asset('img/logo.png') }}" class="d-none d-md-inline mt-3 mb-3" alt="" width="80px" height="80px">
         {{ env('APP_NAME') }}
     </a>
