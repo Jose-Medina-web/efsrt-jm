@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PracticaController;
 use App\Http\Controllers\PromocioneController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -57,5 +58,24 @@ Route::middleware([
     Route::delete('/users/{user}',[UserController::class,'destroy'])
     ->name('users.delete')
     ->middleware('can:users.delete');
+
+    Route::get('/practicas',[PracticaController::class,'index'])
+    ->name('practicas.index')
+    ->middleware('can:practicas.index');
+    Route::get('/practicas/create',[PracticaController::class,'create'])
+    ->name('practicas.create')
+    ->middleware('can:practicas.create');
+    Route::post('/practicas',[PracticaController::class,'store'])
+    ->name('practicas.store')
+    ->middleware('can:practicas.store');
+    Route::get('/practicas/{practica}/edit',[PracticaController::class,'edit'])
+    ->name('practicas.edit')
+    ->middleware('can:practicas.edit');
+    Route::put('/practicas/{practica}',[PracticaController::class,'update'])
+    ->name('practicas.update')
+    ->middleware('can:practicas.update');
+    Route::delete('/practicas/{practica}',[PracticaController::class,'destroy'])
+    ->name('practicas.delete')
+    ->middleware('can:practicas.delete');
 });
 
