@@ -1,8 +1,10 @@
 @extends('layouts.main')
 @section('title', 'EFSRT - Estudiantes')
 @section('section-title', 'Registrar Estudiante')
-<form action="{{ route('users.store') }}" method="post">
-    @csrf
+    @section('form_open')
+        <form action="{{ route('users.store') }}" method="post">
+        @csrf
+    @endsection
     @section('section-buttons')
         <div class="btn-group me-2">
             <a href="{{ route('users.index') }}" class="btn btn-danger">
@@ -64,5 +66,7 @@
             </div>
         </div>
     </div>
-</form>
+    @section('form_close')
+        </form>
+    @endsection
 @endsection
