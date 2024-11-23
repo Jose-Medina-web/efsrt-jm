@@ -21,7 +21,7 @@
                 @foreach ($promociones as $promocione)
                     <tr>
                         <td>{{ $promocione->nombre }}</td>
-                        <td>
+                        <td align="right">
                             <a href="{{ route('promociones.edit',$promocione->id) }}" class="btn btn-warning">Editar</a>
                             <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $promocione->id }}" type="button" class="btn btn-danger">
                                 Eliminar

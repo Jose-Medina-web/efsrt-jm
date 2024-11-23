@@ -63,20 +63,21 @@
     </symbol>
 </svg>
 
-<header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark" style="background-color: rgb(215, 215, 215) !important">
-    <a class="navbar-brand nav-link col-md-3 col-lg-2 me-0 px-3 fs-3 text-primary" 
+<header class="navbar sticky-top bg-dark flex-md-nowrap p-0" data-bs-theme="dark" style="background-color: rgb(215, 215, 215) !important">
+    <a class="navbar-brand nav-link col-md-3 col-lg-2 me-0 px-3 fs-3" style="color:#143967"
     href="{{ route('home') }}">
-    <img src="{{ asset('img/logo.png') }}" class="d-none d-md-inline mt-3 mb-3" alt="" width="80px" height="80px">
-        {{ env('APP_NAME') }}
+    <img src="{{ asset('img/logo.png') }}" class="d-none d-md-inline mt-2 mb-3" alt="" width="80px" height="80px">
+        <b>{{ env('APP_NAME') }}</b>
     </a>
-    {{-- aparece cuando esta pequño --}}
+    {{-- aparece cuando esta pequeño --}}
     <ul class="navbar-nav flex-row d-md-none">
         <li class="nav-item text-nowrap">
-            <button class="nav-link px-3 text-danger" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false"
-                aria-label="Toggle search">
-                <i class="bi bi-power"></i>
-            </button>
+            <form action="{{ asset('/logout') }}" method="post" class="d-inline">
+                @csrf
+                <button class="nav-link px-3 text-danger" type="submit" >
+                    <i class="bi bi-power"></i>
+                </button>
+            </form>
         </li>
         <li class="nav-item text-nowrap">
             <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
@@ -90,7 +91,7 @@
     </ul>
 
     <div class="px-4 d-none d-md-inline">
-        {{ Str::upper(Auth::user()->lastname) }}, {{ Str::title(Auth::user()->name) }} - {{ Str::upper( Auth::user()->getRoleNames()[0]) }}
+        {{ Str::upper(Auth::user()->lastname) }}, {{ Str::title(Auth::user()->name) }} - <b>{{ Str::upper( Auth::user()->getRoleNames()[0]) }}</b>
         <form action="{{ asset('/logout') }}" method="post" class="d-inline">
             @csrf
             <button  type="submit" class="btn btn-danger mx-2"><i class="bi bi-power"></i>  Cerrar Sesión</button>
