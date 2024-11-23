@@ -23,20 +23,20 @@
     @include('layouts.partials.theme-button')
 
     @include('layouts.partials.header')
-    
+
     <div class="container-fluid">
         <div class="row">
             @include('layouts.partials.sidebar')
-
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 vh-100">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                @yield('form_open')
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">@yield('section-title')</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         @yield('section-buttons')
                     </div>
                 </div>
                 @yield('content')
+                @yield('form_close')
             </main>
         </div>
     </div>
