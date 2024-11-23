@@ -13,13 +13,13 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>DNI</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>Promocion</th>
-                    <th></th>
+                    <th style="color: #143967">Nombre</th>
+                    <th style="color: #143967">Apellido</th>
+                    <th style="color: #143967">DNI</th>
+                    <th style="color: #143967">Teléfono</th>
+                    <th style="color: #143967">Correo</th>
+                    <th style="color: #143967">Promocion</th>
+                    <th style="color: #143967"></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,9 +31,9 @@
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ isset($user->promociones[0]->nombre) ? $user->promociones[0]->nombre  : null }}</td>
-                        <td>
-                            <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning">Editar</a>
-                            <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger">
+                        <td align="right">
+                            <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning px-4">Editar</a>
+                            <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger px-3">
                                 Eliminar
                             </button>
                             @include('users.modal')

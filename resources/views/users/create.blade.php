@@ -15,33 +15,54 @@
     @endsection
     @section('content')
     <div class="form-group">
-        <label for="">Nombres</label>
-        <input type="text" name="name" class="form-control mt-2" placeholder="">
+        
+        <div class="row">
+            <div class="col-6">
+                <label for="">Nombres</label>
+                <input type="text" name="name" class="form-control mt-2" placeholder="">
+            </div>
 
-        <label for="">Apellidos</label>
-        <input type="text" name="lastname" class="form-control mt-2" placeholder="">
+            <div class="col-6">
+                <label for="">Apellidos</label>
+                <input type="text" name="lastname" class="form-control mt-2" placeholder="">
+            </div>
+        </div>
 
-        <label for="">DNI</label>
-        <input type="text" name="dni" class="form-control mt-2" placeholder="">
+        <div class="row">
+            <div class="col-6">
+                <label for="">DNI</label>
+                <input type="text" name="dni" class="form-control mt-2" placeholder="">
+            </div>
 
-        <label for="">Teléfono</label>
-        <input type="tel" name="phone" class="form-control mt-2" placeholder="">
+            <div class="col-6">
+                <label for="">Teléfono</label>
+                <input type="tel" name="phone" class="form-control mt-2" placeholder="">
+            </div>
+        </div>
 
-        <label for="">Correo</label>
-        <input type="email" name="email" class="form-control mt-2" placeholder="">
+        <div class="row">
+            <div class="col-4">
+                <label for="">Correo</label>
+                <input type="email" name="email" class="form-control mt-2" placeholder="">
+            </div>
 
-        <label for="">Contraseña</label>
-        <input type="password" name="password" class="form-control mt-2" placeholder="">
+            <div class="col-4">
+                <label for="">Contraseña</label>
+                <input type="password" name="password" class="form-control mt-2" placeholder="">
+            </div>
 
-        <label for="">Promoción</label>
-        <select name="promocione_id[]" class="form-control mt-2">
-            <option value="0" disabled selected>Seleccione el año de ingreso</option>
-            @foreach ($promociones as $promocione)
-                <option value="{{ $promocione->id }}">
-                    {{ $promocione->nombre }}
-                </option>               
-            @endforeach
-        </select>
+            <div class="col-4">
+                <label for="">Promoción</label>
+                <select name="promocione_id[]" class="form-control mt-2">
+                    <option value="0" disabled selected>Seleccione el año de ingreso</option>
+                    @foreach ($promociones as $promocione)
+                        <option value="{{ $promocione->id }}">
+                            {{ $promocione->nombre }}
+                        </option>               
+                    @endforeach
+                </select>
+            </div>
+        </div>
     </div>
 </form>
 @endsection
