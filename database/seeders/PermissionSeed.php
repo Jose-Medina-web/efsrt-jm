@@ -66,7 +66,7 @@ class PermissionSeed extends Seeder
 
         $practica_index = Permission::create([
             'name' => 'practicas.index'
-        ])->assignRole($role_admin);
+        ])->assignRole([$role_admin,$role_studiante]);
         $practica_create = Permission::create([
             'name' => 'practicas.create'
         ])->assignRole($role_admin);
@@ -82,5 +82,11 @@ class PermissionSeed extends Seeder
         $practica_show = Permission::create([
             'name' => 'practicas.show'
         ])->assignRole($role_admin); 
+        $practica_delete = Permission::create([
+            'name' => 'practicas.delete'
+        ])->assignRole($role_admin);
+        $practica_registrarfinal = Permission::create([
+            'name' => 'practicas.registrarfinal'
+        ])->assignRole($role_studiante);
     }
 }
