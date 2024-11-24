@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         
         $this->call(PromocioneSeed::class);
         $this->call(PermissionSeed::class);
+        $this->call(ModuloSeed::class);
         $user1 = User::create([
             'name'=>'Jose Antonio',
             'lastname' =>'Medina Muñoz',
