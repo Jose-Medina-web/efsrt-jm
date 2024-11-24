@@ -71,4 +71,7 @@ class User extends Authenticatable
     public function promociones(){
         return $this->belongsToMany(Promocione::class);
     }
+    public function practicas(){
+        return $this->hasMany(Practica::class);
+    }
 }

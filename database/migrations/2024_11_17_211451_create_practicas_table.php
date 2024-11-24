@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('modulo_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('modulo_id')->references('id')->on('modulos');
+            $table->unique(['user_id', 'modulo_id']);
             $table->timestamps();
         });
     }

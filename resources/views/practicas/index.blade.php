@@ -1,4 +1,3 @@
-index
 @extends('layouts.main')
 @section('title', 'EFSRT - Prácticas')
 @section('section-title', 'Lista de Prácticas')
@@ -27,13 +26,14 @@ index
             <tbody>
                 @foreach ($practicas as $practica)
                     <tr>
-                        <td>{{ $practica->user_id }}</td>
+                        <td>{{ Str::upper($practica->user->lastname)  }}, {{ Str::title($practica->user->name) }}</td>
                         <td>{{ $practica->docente }}</td>
                         <td>{{ $practica->empresa }}</td>
-                        <td>{{ $practica->modulo_id }}</td>
+                        <td>{{ $practica->modulo->nombre }}</td>
                         <td>{{ $practica->fecha_inicio }}</td>
                         <td>{{ $practica->fecha_final }}</td>
-                        <td>{{ $practica->terminado }}</td>
+                        {{-- operador ternario --}}
+                        <td>{{ $practica->terminado ? "SI" : "NO" }}</td> 
                         <td>
                             <a href="{{ route('practicas.edit',$practica->id) }}" class="btn btn-warning">Editar</a>
                             <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $practica->id }}" type="button" class="btn btn-danger">

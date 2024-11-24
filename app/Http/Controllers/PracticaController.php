@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Modulo;
 use App\Models\Practica;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,16 +16,18 @@ class PracticaController extends Controller
         return view('practicas.index',compact('practicas'));
     }
     public function create(){
-        $estudiantes = User::role('estudiante')->get();
-        return view('practicas.create',compact('estudiantes'));
+        $estudiantes = User::role('estudiante')->orderBy('lastname')->orderBy('name')->get();
+        $modulos = Modulo::get();
+        return view('practicas.create',compact('estudiantes','modulos'));
     }
     public function store(Request $request){
         $practica = new  Practica();
+        $practica->user_id = $request->user_id;
+        $practica->modulo_id = $request->modulo_id;
         $practica->docente = $request->docente;
         $practica->empresa = $request->empresa;
         $practica->fecha_inicio = $request->fecha_inicio;
         $practica->fecha_final = $request->fecha_final;
-        $practica->terminado = $request->terminado;
         $practica->save();
         return Redirect::route('practicas.index');
     }

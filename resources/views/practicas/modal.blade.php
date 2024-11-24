@@ -1,8 +1,8 @@
 <!-- Modal -->
-<form class="d-inline" action="{{ route('practicas.delete',$user->id) }}" method="post">
+<form class="d-inline" action="{{ route('practicas.delete',$practica->id) }}" method="post">
     @csrf
     @method('delete')
-    <div class="modal fade" id="modal-delete-{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-delete-{{ $practica->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
@@ -10,7 +10,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            ¿Está seguro de eliminar regitro de la práctica? {{ $user->nombre }}
+            ¿Está seguro de eliminar regitro de la práctica del Estudiante: {{ Str::upper($practica->user->lastname)  }}, {{ Str::title($practica->user->name) }} 
+            del modulo: {{ $practica->modulo->nombre }}?
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
