@@ -15,15 +15,18 @@ class ModuloSeed extends Seeder
     {
         //
         Modulo::create([
-            "nombre"=> "Módulo 1"
+            "nombre"=> "Módulo 1",
+            "descripcion"=> "Este módulo es el primero de la carrera"
         ]);
 
         Modulo::create([
-            "nombre"=> "Módulo 2"
+            "nombre"=> "Módulo 2",
+            "descripcion"=> "Este módulo es el segundo de la carrera"
         ]);
 
         Modulo::create([
-            "nombre"=> "Módulo 3"
+            "nombre"=> "Módulo 3",
+            "descripcion"=> "Este módulo es el tercero de la carrera"
         ]);
 
     }
