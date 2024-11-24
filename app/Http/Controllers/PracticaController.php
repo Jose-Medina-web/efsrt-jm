@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Practica;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -14,7 +15,8 @@ class PracticaController extends Controller
         return view('practicas.index',compact('practicas'));
     }
     public function create(){
-        return view('practicas.create');
+        $estudiantes = User::role('estudiante')->get();
+        return view('practicas.create',compact('estudiantes'));
     }
     public function store(Request $request){
         $practica = new  Practica();
