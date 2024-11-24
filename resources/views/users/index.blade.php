@@ -18,7 +18,10 @@
                     <th style="color: #143967">DNI</th>
                     <th style="color: #143967">Teléfono</th>
                     <th style="color: #143967">Correo</th>
-                    <th style="color: #143967">Promocion</th>
+                    <th style="color: #143967">Promoción</th>
+                    @foreach ($modulos as $key => $modulo)
+                        <th style="color: #143967">M{{ $key + 1 }}</th>
+                    @endforeach
                     <th style="color: #143967"></th>
                 </tr>
             </thead>
@@ -31,6 +34,28 @@
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ isset($user->promociones[0]->nombre) ? $user->promociones[0]->nombre  : null }}</td>
+                        @foreach ($modulos as $modulo)
+                            <td>
+                                @php
+                                    $practica = $user->practicas()->where('modulo_id','=',$modulo->id)->first();
+                                @endphp
+                                @if(isset($practica->id))
+                                    @if($practica->terminado)
+                                        <button class="btn btn-primary">
+                                            <i class="bi bi-check-circle"></i>
+                                        </button>
+                                    @else
+                                        <button class="btn btn-warning">
+                                            <i class="bi bi-hourglass-split"></i>
+                                        </button>
+                                    @endif
+                                @else
+                                    <button class="btn btn-danger">
+                                        <i class="bi bi-x-octagon"></i>
+                                    </button>
+                                @endif
+                            </td>
+                        @endforeach
                         <td align="right">
                             <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning px-4">Editar</a>
                             <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger px-3">

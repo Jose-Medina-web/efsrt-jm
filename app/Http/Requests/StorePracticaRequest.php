@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Modulo;
 use App\Models\Practica;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -32,8 +33,18 @@ class StorePracticaRequest extends FormRequest
                 function($attribute, $value, $fail) {
                     $estudiante = $this->input('estudiante');
                     $practica = Practica::where('user_id','=',$estudiante)->where('modulo_id','=',$value)->first();
+                    $modulo = Modulo::findOrFail($value);
+                    if ($modulo->orden != 1){
+                    $order = $modulo->orden - 1;
+                    $modulo_previo = Modulo::where('orden','=',$order)->first();
+                    $practica_exist = Practica::where('user_id','=',$estudiante)->where('modulo_id','=',$modulo_previo->id)
+                    ->first();
+                        if(!isset($practica_exist->id)){
+                            $fail("Debes de completar el modulo anterior");
+                        }
+                    }
                     if(isset($practica->id)){
-                        $fail("Este modulo ya esta registrado");
+                        $fail("Este módulo ya está registrado");
                     }
                 }
             ],

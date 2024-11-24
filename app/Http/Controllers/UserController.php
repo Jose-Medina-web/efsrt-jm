@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Modulo;
 use App\Models\Promocione;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class UserController extends Controller
     //
     public function index(){
         $users = User::role('estudiante')->get();
-        return view('users.index',compact('users'));
+        $modulos = Modulo::get();
+        return view('users.index',compact('users','modulos'));
     }
     public function create(){
         $promociones = Promocione::get();

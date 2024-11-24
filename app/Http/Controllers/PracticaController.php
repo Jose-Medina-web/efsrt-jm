@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePracticaRequest;
+use App\Mail\EndModuleMail;
 use App\Models\Modulo;
 use App\Models\Practica;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class PracticaController extends Controller
@@ -57,6 +60,22 @@ class PracticaController extends Controller
         return Redirect::route('practicas.index');
     }
     public function registrarFinal($id,Request $request){
-        return $id;
+        $practica = Practica::findOrFail($id);
+        $this->check_days($practica);
+        $practica->fecha_final = Carbon::now();
+        $practica->terminado = true;
+        $practica->update();
+        $this->sendMail($practica);
+        return Redirect::route('practicas.index');
+    }
+    public function sendMail($practica){        
+        Mail::to('daparicio@idexperujapon.edu.pe')->send(new EndModuleMail($practica));
+    }
+    public function check_days($practica){
+        $fecha = Carbon::parse($practica->fecha_inicio);
+        $fecha->addDays(37);
+        if ($fecha->gt(Carbon::now())){
+            return Redirect::route('practicas.index')->with('error','No puedes finalizar la práctica antes de los 37 días');
+        }
     }
 }

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Jose Antonio',
             'lastname' =>'Medina Muñoz',
             'dni'=>'45874587',
-            'email'=>'pepito@gmail.com',
+            'email'=>'josemedinamunoz303@gmail.com',
             'phone'=>'98745125',
             'password'=> bcrypt('12345678')
         ]);
@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Kevin MasNaa',
             'lastname' =>'Yoplac Muñoz',
             'dni'=>'73661887',
-            'email'=>'kevin@gmail.com',
+            'email'=>'yoplackevin@gmail.com',
             'phone'=>'938543502',
             'password'=> bcrypt('12345678')
         ]);
