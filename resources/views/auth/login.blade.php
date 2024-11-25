@@ -26,12 +26,18 @@
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
+            {{-- <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
                     <span class="ms-2 text-sm text-gray-600" style="color: #143967;">{{ __('Ver Contraseña') }}</span>
                 </label>
-            </div>
+            </div> --}}
+
+            <label for="mostrar" class="flex items-center">
+                <input class="form-check mt-2" style="border-radius: 3px" type="checkbox" id="mostrar" name="mostrar" onclick="MostrarContraseña()" />
+                <span class="ms-2 text-sm text-gray-600 mt-2" style="color: #143967;">Ver Contraseña</span>
+            </label>
+            
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -47,3 +53,17 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+
+<script>
+    function MostrarContraseña() {
+        const passwordInput = document.getElementById('password');
+        const checkbox = document.getElementById('mostrar');
+
+        // Cambiar el tipo del input según el estado del checkbox
+        if (checkbox.checked) {
+            passwordInput.type = 'text'; // Mostrar la contraseña
+        } else {
+            passwordInput.type = 'password'; // Ocultar la contraseña
+        }
+    }
+</script>
