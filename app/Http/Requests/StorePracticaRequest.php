@@ -40,7 +40,7 @@ class StorePracticaRequest extends FormRequest
                     $practica_exist = Practica::where('user_id','=',$estudiante)->where('modulo_id','=',$modulo_previo->id)
                     ->first();
                         if(!isset($practica_exist->id)){
-                            $fail("Debes de completar el modulo anterior");
+                            $fail("Debes de completar el módulo anterior");
                         }
                     }
                     if(isset($practica->id)){

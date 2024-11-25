@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePracticaRequest;
+use App\Http\Requests\UpdatePracticaRequest;
 use App\Mail\EndModuleMail;
 use App\Models\Modulo;
 use App\Models\Practica;
@@ -36,21 +37,21 @@ class PracticaController extends Controller
         $practica->docente = $request->docente;
         $practica->empresa = $request->empresa;
         $practica->fecha_inicio = $request->fecha_inicio;
-        $practica->fecha_final = $request->fecha_final;
         $practica->save();
         return Redirect::route('practicas.index');
     }
     public function edit($id){
-        $practica = Practica::find($id);
-        return view('practicas.edit',compact('practica','user'));
+        $practica = Practica::findOrFail($id);
+        $user = User::find($id);
+        $modulos = Modulo::get();
+        $estudiantes = User::role('estudiante')->orderBy('lastname')->orderBy('name')->get();
+        return view('practicas.edit',compact('practica','user','estudiantes','modulos'));
     }
-    public function update(Request $request,$id){
+    public function update(UpdatePracticaRequest $request,$id){
         $practica = Practica::find($id);
         $practica->docente = $request->docente;
         $practica->empresa = $request->empresa;
         $practica->fecha_inicio = $request->fecha_inicio;
-        $practica->fecha_final = $request->fecha_final;
-        $practica->terminado = $request->terminado;
         $practica->update();        
         return Redirect::route('practicas.index');
     }
