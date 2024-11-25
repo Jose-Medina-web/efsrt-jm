@@ -17,6 +17,9 @@ class PromocioneController extends Controller
         return view('promociones.create');
     }
     public function store(Request $request){
+        $request->validate([
+            "nombre"=>"required|unique:promociones,nombre|max:4|min:4"
+        ]);
         $promocione = new  Promocione();
         $promocione->nombre = $request->nombre;
         $promocione->save();
@@ -27,6 +30,9 @@ class PromocioneController extends Controller
         return view('promociones.edit',compact('promocione'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            "nombre"=>"required|unique:promociones,nombre|max:4|min:4"
+        ]);
         $promocione = Promocione::find($id);
         $promocione->nombre = $request->nombre;
         $promocione->update();        
