@@ -4,7 +4,7 @@
 @section('section-buttons')
     <div class="btn-group me-2">
         <a href="{{ route('users.create') }}" class="btn btn-success">
-            Nuevo Registro
+            <i class="bi bi-person-plus"></i> Nuevo Registro
         </a>
     </div>
 @endsection
@@ -57,8 +57,8 @@
                             </td>
                         @endforeach
                         <td align="right">
-                            <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning px-4">Editar</a>
-                            <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger px-3">
+                            <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning"><i class="bi bi-pencil"></i> Editar</a>
+                            <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger"><i class="bi bi-trash3"></i> 
                                 Eliminar
                             </button>
                             @include('users.modal')
