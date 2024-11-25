@@ -60,10 +60,10 @@
                         <td>{{ $practica->terminado ? 'SI' : 'NO' }}</td>
                         @hasanyrole('admin')
                             <td align="right">
-                                <a href="{{ route('practicas.edit', $practica->id) }}" class="btn btn-warning"><i class="bi bi-pencil"></i> Editar</a>
+                                <a href="{{ route('practicas.edit', $practica->id) }}" class="mt-1 btn btn-warning"><i class="bi bi-pencil"></i> <span class="d-none d-md-inline">Editar</span> </a>
                                 <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $practica->id }}"
-                                    type="button" class="btn btn-danger">
-                                    <i class="bi bi-trash3"></i> Eliminar
+                                    type="button" class="mt-1 btn btn-danger">
+                                    <i class="bi bi-trash3"></i> <span class="d-none d-md-inline">Eliminar</span> 
                                 </button>
                                 @include('practicas.modal')
                             </td>
