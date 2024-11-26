@@ -9,6 +9,7 @@
     </div>
 @endsection
 @section('content')
+    <x-alert />
     <div class="table-responsive">
         <table class="table">
             <thead>
