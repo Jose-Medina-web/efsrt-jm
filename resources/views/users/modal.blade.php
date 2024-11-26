@@ -6,11 +6,11 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Acción</h1>
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Confirmar Acción</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-            Esta seguro de eliminar la promocion {{ $user->nombre }}
+            <div class="modal-body" align="center">
+            Esta seguro de eliminar al estudiante: {{ Str::upper($user->lastname)  }}, {{ Str::title($user->name) }}
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

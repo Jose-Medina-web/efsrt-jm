@@ -21,15 +21,24 @@ class UserController extends Controller
         return view('users.create',compact('promociones'));
     }
     public function store(Request $request){
+        $request->validate([
+            "name"=>"required",
+            "apellido"=>"required",
+            "dni"=>"required",
+            "phone"=>"required|min:9|max:9",
+            "email"=>"required|email",
+            "password"=>"required|min:8|confirmed",
+            "promoción"=>"required",
+        ]);
         $user = new  User();
         $user->name = $request->name;
-        $user->lastname = $request->lastname;
+        $user->lastname = $request->apellido;
         $user->dni = $request->dni;
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = encrypt($request->password);
         $user->save();
-        $user->promociones()->sync($request->promocione_id);
+        $user->promociones()->sync($request->promoción);
         $user->assignRole('estudiante');
         return Redirect::route('users.index');
     }
@@ -41,15 +50,26 @@ class UserController extends Controller
     }
     
     public function update(Request $request,$id){
-        
+        $request->validate([
+            "name"=>"required",
+            "apellido"=>"required",
+            "dni"=>"required",
+            "phone"=>"required|min:9|max:9",
+            "email"=>"required|email",
+            "password"=>"confirmed",
+            "promoción"=>"required",
+        ]);
         $user = User::find($id);
         // dd($user);
         $user->name = $request->name;
-        $user->lastname = $request->lastname;
+        $user->lastname = $request->apellido;
         $user->dni = $request->dni;
         $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->password = $request->password;
+        if(isset($request->password)){
+            $user->password = $request->password;
+        }
+        
         $user->update();        
         return Redirect::route('users.index');
     }
