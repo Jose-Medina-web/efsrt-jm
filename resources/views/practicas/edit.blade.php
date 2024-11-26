@@ -36,9 +36,6 @@
                     </div>
                     @enderror
                 </div>
-                
-
-
                 <div class="col-6">
                     <label for="" style="color: #143967"><i class="bi bi-briefcase"></i> <b>Docente Supervisor</b> </label>
                     <input  type="text" name="docente" class="form-control mt-2" value={{ $practica->docente }} />

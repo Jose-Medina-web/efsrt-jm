@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title', 'EFSRT - Promociones')
-@section('section-title', 'Editar Promocion')
+@section('section-title', 'Editar Promoción')
 @section('form_open')
 <form action="{{ route('promociones.update',$promocione->id) }}" method="post">
     @csrf
