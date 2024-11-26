@@ -10,7 +10,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            Esta seguro de eliminar la promocion {{ $promocione->nombre }}
+            ¿Está seguro de eliminar la promoción {{ $promocione->nombre }}?
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
