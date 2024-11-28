@@ -46,7 +46,6 @@
                                     <div class="btn-group" role="group">
                                         <input type="text" disabled
                                             value="{{ date('d-m-Y', strtotime(\Carbon\Carbon::now())) }}" class='form-control'>
-                                        <p></p>
                                         <button data-bs-toggle="modal" data-bs-target="#modal-fecha-fin-{{ $practica->id }}"
                                             type="button" class="btn btn-primary">
                                             <i class="bi bi-check-circle"></i>

@@ -1,3 +1,5 @@
+
+
 @extends('layouts.main')
 @section('title', 'EFSRT - Estudiante')
 @section('section-title', 'Lista de Estudiantes')

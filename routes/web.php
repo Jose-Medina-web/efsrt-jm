@@ -52,6 +52,11 @@ Route::middleware([
     Route::get('/users/{user}/edit',[UserController::class,'edit'])
     ->name('users.edit')
     ->middleware('can:users.edit');
+
+    Route::post('/users/registraruser',[UserController::class,'registrarUser'])
+    ->name('users.registraruser')
+    ->middleware('can:users.registraruser');
+
     Route::put('/users/{user}',[UserController::class,'update'])
     ->name('users.update')
     ->middleware('can:users.update');

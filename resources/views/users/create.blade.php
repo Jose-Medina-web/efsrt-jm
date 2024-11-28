@@ -10,9 +10,11 @@
             <a href="{{ route('users.index') }}" class="btn btn-danger">
                 <i class="bi bi-box-arrow-left"></i> Regresar
             </a>
-            <button type="submit" class="btn btn-primary mx-1">
+               
+            <button type="submit" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modal-registrar-user">
                 <i class="bi bi-save"></i> Guardar
             </button>
+            @include('users.modal-registrar-user')
         </div>
     @endsection
     @section('content')

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserRegisterMail;
 use App\Models\Modulo;
 use App\Models\Promocione;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
@@ -104,5 +106,15 @@ class UserController extends Controller
             return Redirect::route('users.index')->with('error', 'Error al eliminar el usuario');
         }
         return Redirect::route('users.index')->with('info', 'Usuario eliminado con éxito');
+    }
+
+    public function registrarUser($id,Request $request){
+        $user = User::findOrFail($id);
+        $user->get();
+        $this->sendMailUser($user);
+        return Redirect::route('users.index');
+    }
+    public function sendMailUser($user){        
+        Mail::to('josemedinamunoz303@gmail.com')->send(new UserRegisterMail($user));
     }
 }
