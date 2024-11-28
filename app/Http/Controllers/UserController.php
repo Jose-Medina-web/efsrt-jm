@@ -30,7 +30,7 @@ class UserController extends Controller
             "apellido" => "required",
             "dni" => "required",
             "phone" => "required|min:9|max:9",
-            "email" => "required|email",
+            "email" => "required|email|unique:users,email",
             "password" => "required|min:8|confirmed",
             "promoción" => "required",
         ]);
@@ -68,9 +68,9 @@ class UserController extends Controller
         $request->validate([
             "name" => "required",
             "apellido" => "required",
-            "dni" => "required",
+            "dni" => "required|min:8|max:8|unique:users,dni",
             "phone" => "required|min:9|max:9",
-            "email" => "required|email",
+            "email" => "required|email|unique:users,email",
             "password" => "confirmed",
             "promoción" => "required",
         ]);
