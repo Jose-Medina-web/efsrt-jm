@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-6">
                     <label for="" style="color: #143967"><i class="bi bi-briefcase"></i> <b>Docente Supervisor</b> </label>
-                    <input  type="text" name="docente" class="form-control mt-2" value={{ $practica->docente }} />
+                    <input type="text" name="docente" class="form-control mt-2" value="{{ $practica->docente }}">
                     @error('docente')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>

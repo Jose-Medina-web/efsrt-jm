@@ -61,6 +61,7 @@ class PromocioneController extends Controller
             $promocione = Promocione::find($id);
             $promocione->delete();
         } catch (\Throwable $th) {
+            dd($th);
             return Redirect::route('promociones.index')->with('error', 'No se puede eliminnar la promoción ' . $promocione->nombre);
         }
         return Redirect::route('promociones.index')->with('info', 'La promoción '.$promocione->nombre.' fue eliminada exitosamente');
