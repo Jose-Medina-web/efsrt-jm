@@ -97,14 +97,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         try {
-            DB::transaction();
             $user = User::findOrFail($id);
             $user->delete();
-            DB::commit();
         } catch (\Throwable $th) {
             //throw $th;
-            DB::rollBack();
-            return Redirect::route('users.index')->with('error', 'Error al eliminar el usuario');
+            return Redirect::route('users.index')->with('error',$th->getMessage());
         }
         return Redirect::route('users.index')->with('info', 'Usuario eliminado con éxito');
     }
