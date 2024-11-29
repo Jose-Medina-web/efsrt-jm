@@ -8,18 +8,22 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use LaravelLang\Publisher\Console\Add;
 use Illuminate\Mail\Mailables\Address;
-class EndModuleMail extends Mailable
+
+class UserRegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public $practica;
-    public function __construct($practica)
+    public $user;
+    public $password;
+    public function __construct($user,$password)
     {
-        $this->practica = $practica;
+        $this->user = $user;
+        $this->password = $password;
     }
 
     /**
@@ -28,7 +32,7 @@ class EndModuleMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Término de EFSRT',
+            subject: 'Credenciales de acceso a EFRST',
             from: new Address('43053643@idexperujapon.edu.pe','Sistema EFRST')
         );
     }
@@ -39,7 +43,7 @@ class EndModuleMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.endmodulemail',
+            view: 'emails.userregisteremail',
         );
     }
 

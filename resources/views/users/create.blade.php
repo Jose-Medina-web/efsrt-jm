@@ -10,18 +10,20 @@
             <a href="{{ route('users.index') }}" class="btn btn-danger">
                 <i class="bi bi-box-arrow-left"></i> Regresar
             </a>
-            <button type="submit" class="btn btn-primary mx-1">
+               
+            <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modal-registrar-user">
                 <i class="bi bi-save"></i> Guardar
             </button>
+            @include('users.modal-registrar-user')
         </div>
     @endsection
     @section('content')
         <div class="form-group">
 
             <div class="row">
-                <div class="col-sm-12 col-md-6">
+                <div class="col-6">
                     <label for="" style="color: #143967"><i class="bi bi-person-fill"></i> <b>Nombres</b></label>
-                    <input type="text" name="name" class="form-control mt-2" value={{ old('name') }}>
+                    <input type="text" name="name" class="form-control mt-2" placeholder="">
                     @error('name')
                         <div class="alert alert-danger mt-2 p-2" role="alert">
                             <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -33,7 +35,7 @@
                 <div class="col-sm-12 col-md-6">
                     <label for="" style="color: #143967"><i class="bi bi-person-lines-fill"></i>
                         <b>Apellidos</b></label>
-                    <input type="text" name="apellido" class="form-control mt-2" value={{ old('apellido') }}>
+                    <input type="text" name="apellido" class="form-control mt-2" placeholder="">
                     @error('apellido')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -46,7 +48,7 @@
                 <div class="col-sm-12 col-md-6">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-person-vcard"></i>
                         <b>DNI</b></label>
-                    <input type="text" name="dni" class="form-control mt-2" value={{ old('dni') }}>
+                    <input type="text" name="dni" class="form-control mt-2" placeholder="">
                     @error('dni')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -57,7 +59,7 @@
                 <div class="col-sm-12 col-md-6">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-telephone-forward"></i>
                         <b>Teléfono</b></label>
-                    <input type="tel" name="phone" class="form-control mt-2" value={{ old('phone') }}>
+                    <input type="tel" name="phone" class="form-control mt-2" placeholder="">
                     @error('phone')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -70,7 +72,7 @@
                 <div class="col-sm-12 col-md-3">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-envelope"></i>
                         <b>Correo</b></label>
-                    <input type="email" name="email" class="form-control mt-2" value={{ old('email') }}>
+                    <input type="email" value="{{ old('email') }}" name="email" class="form-control mt-2" placeholder="">
                     @error('email')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -81,7 +83,7 @@
                 <div class="col-sm-12 col-md-3">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-lock"></i>
                         <b>Contraseña</b></label>
-                    <input type="password" name="password" class="form-control mt-2" value={{ old('password') }}>
+                    <input type="password" name="password" class="form-control mt-2" placeholder="">
                     @error('password')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -92,7 +94,7 @@
                 <div class="col-sm-12 col-md-3">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-lock"></i> <b>Confirmar
                             Contraseña</b></label>
-                    <input type="password" name="password_confirmation" class="form-control mt-2" value={{ old('password_confirmation') }}>
+                    <input type="password" name="password_confirmation" class="form-control mt-2" placeholder="">
                     @error('password')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -104,7 +106,7 @@
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-people"></i>
                         <b>Promoción</b></label>
                     <select name="promoción" class="form-control mt-2">
-                        <option value={{ old('promocion') }} disabled selected>Seleccione el año de ingreso</option>
+                        <option value="" disabled selected>Seleccione el año de ingreso</option>
                         @foreach ($promociones as $promocione)
                             <option value="{{ $promocione->id }}" @if($promocione->id == old('promoción')) selected @endif>
                                 {{ $promocione->nombre }}

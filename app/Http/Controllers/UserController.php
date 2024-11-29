@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserRegisterMail;
 use App\Models\Modulo;
 use App\Models\Promocione;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
@@ -45,6 +46,7 @@ class UserController extends Controller
             $user->save();
             $user->promociones()->sync($request->promoción);
             $user->assignRole('estudiante');
+            $this->sendMailUser($user,$request->password);
         } catch (\Throwable $th) {
             //throw $th;
             return Redirect::route('users.index')->with('error', 'Error al crear el usuario');
@@ -86,10 +88,11 @@ class UserController extends Controller
             $user->email = $request->email;
             if (isset($request->password)) {
                 $user->password = $request->password;
+                $this->sendMailUser($user,$request->password);
             }
             $user->update();
         } catch (\Throwable $th) {
-            return Redirect::route('users.index')->with('error', 'Error al actualizar el usuario');
+            return Redirect::route('users.index')->with('error',$th->getMessage());
         }
         return Redirect::route('users.index')->with('info', 'Usuario actualizado con éxito');
     }
@@ -104,5 +107,8 @@ class UserController extends Controller
             return Redirect::route('users.index')->with('error',$th->getMessage());
         }
         return Redirect::route('users.index')->with('info', 'Usuario eliminado con éxito');
+    }
+    public function sendMailUser($user,$password){        
+        Mail::to($user->email)->send(new UserRegisterMail($user,$password));
     }
 }
