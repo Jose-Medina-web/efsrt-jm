@@ -44,7 +44,7 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->password = encrypt($request->password);
             $user->save();
-            $user->promociones()->sync($request->promoción);
+            $user->promociones()->sync($request->promocion);
             $user->assignRole('estudiante');
             $this->sendMailUser($user,$request->password);
         } catch (\Throwable $th) {
@@ -86,6 +86,7 @@ class UserController extends Controller
             $user->dni = $request->dni;
             $user->phone = $request->phone;
             $user->email = $request->email;
+            $user->promociones()->sync($request->promocion);
             if (isset($request->password)) {
                 $user->password = $request->password;
                 $this->sendMailUser($user,$request->password);
