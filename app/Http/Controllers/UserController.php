@@ -95,7 +95,7 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             return Redirect::route('users.index')->with('error',$th->getMessage());
         }
-        return Redirect::route('users.index')->with('info', 'Usuario actualizado con éxito');
+        return Redirect::route('users.index')->with('info', 'Registro de estudiante actualizado con éxito');
     }
 
     public function destroy($id)
