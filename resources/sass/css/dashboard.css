@@ -47,6 +47,7 @@
   padding: .75rem 1rem;
 }
 .link-active{
-  background-color: #0a4581 !important;
+  background-color: #143967 !important;
   color: white !important;
+  font-weight: 900;
 }
