@@ -58,7 +58,7 @@
                             </td>
                         @endforeach
                         <td align="right">
-                            <a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning"><i class="bi bi-pencil"></i> <span class="d-none d-md-inline">Editar</span></a>
+                            <a href="{{ route('users.edit',$user->id) }}" class="mb-1 btn btn-warning"><i class="bi bi-pencil"></i> <span class="d-none d-md-inline">Editar</span></a>
                             <button data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}" type="button" class="btn btn-danger"><i class="bi bi-trash3"></i> 
                                 <span class="d-none d-md-inline">Eliminar</span>
                             </button>
