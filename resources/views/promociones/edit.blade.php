@@ -11,9 +11,10 @@
             <a href="{{ route('promociones.index') }}" class="btn btn-danger">
                 <i class="bi bi-box-arrow-left"></i> Regresar
             </a>
-            <button type="submit" class="btn btn-primary mx-1">
+            <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modal-editar-promocion">
                 <i class="bi bi-save"></i> Guardar
             </button>
+            @include('promociones.modal-editar-promocion')
         </div>
     @endsection
     @section('content')

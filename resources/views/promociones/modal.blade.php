@@ -10,7 +10,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            ¿Está seguro de eliminar la promoción {{ $promocione->nombre }}?
+            ¿Está seguro de eliminar la promoción {{ $promocione->nombre }}? Si un estudiante tiene registrada la promoción {{ $promocione->nombre }}, no se podrá eliminar el registro.
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
