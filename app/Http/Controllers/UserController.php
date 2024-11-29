@@ -68,9 +68,12 @@ class UserController extends Controller
         $request->validate([
             "name" => "required",
             "apellido" => "required",
-            "dni" => "required|min:8|max:8|unique:users,dni",
+            "dni" => "required|min:8|max:8",
             "phone" => "required|min:9|max:9",
-            "email" => "required|email|unique:users,email",
+            "email" => [
+                'required',
+                'regex:/^([a-zA-Z0-9._%+-]+)@(idexperujapon\.edu\.pe|gmail\.com)$/'
+            ],
             "password" => "confirmed",
             "promoción" => "required",
         ]);
