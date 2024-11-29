@@ -77,8 +77,5 @@ Route::middleware([
     Route::delete('/practicas/{practica}',[PracticaController::class,'destroy'])
     ->name('practicas.delete')
     ->middleware('can:practicas.delete');
-    Route::put('/practicas/{practica}/registrarfinal',[PracticaController::class,'registrarFinal'])
-    ->name('practicas.registrarfinal')
-    ->middleware('can:practicas.registrarfinal');
 });
 
