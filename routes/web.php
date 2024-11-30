@@ -85,6 +85,9 @@ Route::middleware([
 });
 
 Route::get('clear-cache',function(){
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
     Artisan::call('cache:clear');
+    Artisan::call('route:clear');
     return "Cache is cleared";
 });
