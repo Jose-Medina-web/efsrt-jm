@@ -39,7 +39,7 @@
 
                 <div class="col-sm-12 col-md-6">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-briefcase"></i> <b>Docente Supervisor</b> </label>
-                    <input  type="text" name="docente" class="form-control mt-2" value="{{ $practica->docente }}" />
+                    <input  type="text" name="docente" class="form-control mt-2" value="{{ old('docente', $practica->docente) }}" />
                     @error('docente')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <label class="mt-2" for="" style="color: #143967"><i class="bi bi-building-check"></i> <b>Empresa</b></label>
-                    <input type="text" name="empresa" class="form-control mt-2" value="{{ $practica->empresa }}" />
+                    <input type="text" name="empresa" class="form-control mt-2" value="{{ old('empresa', $practica->empresa) }}" />
                     @error('empresa')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <label class="mt-2" for="" style="color: #143967"><i class="bi bi-calendar"></i> <b>Fecha Inicio</b></label>
-                    <input type="date" name="fecha_inicio" class="form-control mt-2" value="{{ date('Y-m-d',strtotime($practica->fecha_inicio)) }}" />    
+                    <input type="date" name="fecha_inicio" class="form-control mt-2" value="{{ date('Y-m-d',strtotime(old('fecha_inicio', $practica->fecha_inicio))) }}" />    
                     @error('fecha_inicio')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>

@@ -9,7 +9,7 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Acción</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" align="center">
             ¿Está seguro de eliminar regitro de la práctica del Estudiante: {{ Str::upper($practica->user->lastname)  }}, {{ Str::title($practica->user->name) }} 
             del modulo: {{ $practica->modulo->nombre }}?
             </div>
