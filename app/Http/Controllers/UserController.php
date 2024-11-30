@@ -33,7 +33,7 @@ class UserController extends Controller
             "phone" => "required|min:9|max:9",
             "email" => "required|email|unique:users,email",
             "password" => "required|min:8|confirmed",
-            "promoción" => "required",
+            "promocion" => "required",
         ]);
         try {
             $user = new  User();
@@ -77,7 +77,7 @@ class UserController extends Controller
                 'regex:/^([a-zA-Z0-9._%+-]+)@(idexperujapon\.edu\.pe|gmail\.com)$/'
             ],
             "password" => "confirmed",
-            "promoción" => "required",
+            "promocion" => "required",
         ]);
         try {
             $user = User::findOrFail($id);

@@ -105,15 +105,15 @@
                 <div class="col-sm-12 col-md-3">
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-people"></i>
                         <b>Promoción</b></label>
-                    <select name="promoción" class="form-control mt-2">
+                    <select name="promocion" class="form-control mt-2">
                         <option value="" disabled selected>Seleccione el año de ingreso</option>
                         @foreach ($promociones as $promocione)
-                            <option value="{{ $promocione->id }}" @if($promocione->id == old('promoción')) selected @endif>
+                            <option value="{{ $promocione->id }}" @if($promocione->id == old('promocion')) selected @endif>
                                 {{ $promocione->nombre }}
                             </option>
                         @endforeach
                     </select>
-                    @error('promoción')
+                    @error('promocion')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
                     </div>
