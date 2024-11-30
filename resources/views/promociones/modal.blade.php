@@ -9,7 +9,7 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Acción</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" align="center">
             ¿Está seguro de eliminar la promoción {{ $promocione->nombre }}? Si un estudiante tiene registrada la promoción {{ $promocione->nombre }}, no se podrá eliminar el registro.
             </div>
             <div class="modal-footer">

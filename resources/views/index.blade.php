@@ -25,5 +25,5 @@
     <p>El EFSRT está diseñado para facilitar la organización, el seguimiento y la gestión integral
         de las prácticas preprofesionales. Con una interfaz intuitiva y funciones avanzadas, esta
         plataforma está destinada a estudiantes, coordinadores académicos y empresas colaboradoras,
-        permitiendo una experiencia de prácticas fluida y eficiente</p>
+        permitiendo una experiencia de prácticas fluida y eficiente.</p>
 @endsection

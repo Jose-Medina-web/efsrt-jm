@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <label for="" class="mt-2" style="color: #143967"><i class="bi bi-person-fill"></i> <b>Nombres</b></label>
-                <input type="text" value="{{ $user->name }}" name="name" class="form-control mt-2">
+                <input type="text" value="{{ old('name', $user->name) }}" name="name" class="form-control mt-2">
                 @error('name')
                     <div class="alert alert-danger mt-2 p-2" role="alert">
                         <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -32,7 +32,7 @@
             <div class="col-sm-12 col-md-6">
                 <label for="" class="mt-2" style="color: #143967"><i class="bi bi-person-lines-fill"></i>
                     <b>Apellidos</b></label>
-                <input type="text" value="{{ $user->lastname }}" name="apellido" class="form-control mt-2">
+                <input type="text" value="{{ old('apellido', $user->lastname) }}" name="apellido" class="form-control mt-2">
                 @error('apellido')
                 <div class="alert alert-danger mt-2 p-2" role="alert">
                     <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -45,7 +45,7 @@
             <div class="col-sm-12 col-md-6">
                 <label for="" class="mt-2" style="color: #143967"><i class="bi bi-person-vcard"></i>
                     <b>DNI</b></label>
-                <input type="number" value="{{ $user->dni }}" name="dni" class="form-control mt-2">
+                <input type="number" value="{{ old('dni', $user->dni) }}" name="dni" class="form-control mt-2">
                 @error('dni')
                 <div class="alert alert-danger mt-2 p-2" role="alert">
                     <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -56,7 +56,7 @@
             <div class="col-sm-12 col-md-6">
                 <label for="" class="mt-2" style="color: #143967"><i class="bi bi-telephone-forward"></i>
                     <b>Teléfono</b></label>
-                <input type="number" value="{{ $user->phone }}" name="phone" class="form-control mt-2">
+                <input type="number" value="{{ old('phone', $user->phone) }}" name="phone" class="form-control mt-2">
                 @error('phone')
                 <div class="alert alert-danger mt-2 p-2" role="alert">
                     <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -69,7 +69,7 @@
             <div class="col-sm-12 col-md-3">
                 <label for="" class="mt-2" style="color: #143967"><i class="bi bi-envelope"></i>
                     <b>Correo</b></label>
-                <input type="email" value="{{ $user->email }}" name="email" class="form-control mt-2">
+                <input type="email" value="{{ old('email', $user->email) }}" name="email" class="form-control mt-2">
                 @error('email')
                 <div class="alert alert-danger mt-2 p-2" role="alert">
                     <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
@@ -106,7 +106,7 @@
                     <option value="0" disabled selected>Seleccione el año de ingreso</option>
                     @foreach ($promociones as $promocione)
                         <option value="{{ $promocione->id }}" 
-                            @if ($promocione->id == $user->promociones[0]->id) selected @endif>
+                            @if ($promocione->id == old('promocion', $user->promociones[0]->id)) selected @endif>
                             {{ $promocione->nombre }}
                         </option>               
                     @endforeach

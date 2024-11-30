@@ -20,7 +20,7 @@
     @section('content')
     <div class="form-group">
         <label for="" style="color: #143967"><i class="bi bi-journal-plus"></i> <b>Nombres</b></label>
-        <input type="number" value="{{ $promocione->nombre }}" name="nombre" class="form-control mt-2" placeholder="ingrese el año de la promoción">
+        <input type="number" value="{{ old('nombre', $promocione->nombre) }}" name="nombre" class="form-control mt-2" placeholder="ingrese el año de la promoción">
         @error('nombre')
         <div class="alert alert-danger mt-2 p-2" role="alert">
             <small><i class="bi bi-exclamation-triangle"></i> {{ $message }}</small>
