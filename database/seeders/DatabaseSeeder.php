@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         
-        $this->call(PromocioneSeed::class);
+        /* $this->call(PromocioneSeed::class); */
         $this->call(PermissionSeed::class);
         $this->call(ModuloSeed::class);
+         /*
         $user1 = User::create([
             'name'=>'Jose Antonio',
             'lastname' =>'Medina Muñoz',
@@ -33,19 +34,19 @@ class DatabaseSeeder extends Seeder
             'email'=>'yoplackevin@gmail.com',
             'phone'=>'938543502',
             'password'=> bcrypt('12345678')
-        ]);
-        $user1->promociones()->attach(1);
-        $user2->promociones()->attach(1);
+        ]); */
+        /* $user1->promociones()->attach(1);
+        $user2->promociones()->attach(1); */
         $user_admin = User::create([
             'name'=>'Betty Aurora',
             'lastname' =>'Del Maestro Chambergo',
-            'dni'=>'12345678',
+            'dni'=>'17436498',
             'email'=>'bmaestro@idexperujapon.edu.pe',
             'phone'=>'987654321',
-            'password'=> bcrypt('12345678')
+            'password'=> bcrypt('JK17436498')
         ]);
         $user_admin->assignRole('admin');
-        $user1->assignRole('estudiante');
-        $user2->assignRole('estudiante');
+        /* $user1->assignRole('estudiante');
+        $user2->assignRole('estudiante'); */
     }
 }

@@ -42,7 +42,7 @@ class UserController extends Controller
             $user->dni = $request->dni;
             $user->phone = $request->phone;
             $user->email = $request->email;
-            $user->password = encrypt($request->password);
+            $user->password = $request->password;
             $user->save();
             $user->promociones()->sync($request->promocion);
             $user->assignRole('estudiante');

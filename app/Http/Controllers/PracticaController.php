@@ -69,8 +69,12 @@ class PracticaController extends Controller
         $this->sendMail($practica);
         return Redirect::route('practicas.index');
     }
-    public function sendMail($practica){        
-        Mail::to('daparicio@idexperujapon.edu.pe')->send(new EndModuleMail($practica));
+    public function sendMail($practica){      
+        if(env('APP_ENV') === 'production'){
+            Mail::to('bmaestro@idexperujapon.edu.pe')->send(new EndModuleMail($practica));
+        }else{
+            Mail::to('47152855@idexperujapon.edu.pe')->send(new EndModuleMail($practica));
+        }
     }
     public function check_days($practica){
         $fecha = Carbon::parse($practica->fecha_inicio);
