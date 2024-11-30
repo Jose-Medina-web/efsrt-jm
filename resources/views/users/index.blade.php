@@ -10,7 +10,6 @@
 @endsection
 @section('content')
     <x-alert />
-    {{ env('MAIL_MAILER') }}
     <div class="table-responsive">
         <table class="table">
             <thead>

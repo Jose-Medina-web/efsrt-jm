@@ -106,7 +106,7 @@
                     <label for="" class="mt-2" style="color: #143967"><i class="bi bi-people"></i>
                         <b>Promoción</b></label>
                     <select name="promocion" class="form-control mt-2">
-                        <option value={{ old('promocion') }} disabled selected>Seleccione el año de ingreso</option>
+                        <option value="" disabled selected>Seleccione el año de ingreso</option>
                         @foreach ($promociones as $promocione)
                             <option value="{{ $promocione->id }}" @if($promocione->id == old('promocion')) selected @endif>
                                 {{ $promocione->nombre }}
