@@ -11,8 +11,13 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/dashboard.js', 'resources/js/color-modes.js'])
-
+    @if(env('APP_ENV') === 'local')
+        @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/dashboard.js', 'resources/js/color-modes.js'])
+    @else
+        <link rel="stylesheet" href="{{ asset('build/assets/app-BWRwdEbe.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/app-CTHnBVe9.css') }}">
+        <script src="{{ asset('build/assets/app-DP0g_4ws.js') }}"></script>
+    @endif
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -20,11 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <!-- Or for RTL support -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
-
-
+   
 </head>
 
 <body>
@@ -49,10 +50,7 @@
             </main>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"
-        integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous">
-    </script>
-    <!-- Scripts -->
+       <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @yield('scripts')
